@@ -19,7 +19,7 @@ function createWindow() {
   win.loadFile(path.join(__dirname, 'dist/quiz-csa-front/index.html'));
 
   // Opcional: Abre las DevTools en modo desarrollo
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {

@@ -1,0 +1,52 @@
+<section class="grid">
+    <section class="col-12 md:col-6 md:col-offset-3">
+        <p-card>
+            <section class="grid">
+                <section class="col-12 {{gameComplete ? 'pe-none':''}}">
+                    <p-carousel [tabIndex]="" #carousel [value]="preguntas" [numVisible]="1" [numScroll]="1" [circular]="false" [showNavigators]="false" [showIndicators]="false">
+                        <ng-template let-item pTemplate="item">
+                            <section class="flex flex-column gap-4">
+                                <p class="text-xl lg:text-4xl font-semibold text-center">{{item.pregunta}}</p>
+                            </section>
+                            <section class="grid">
+                                <section class="col-6" *ngFor="let respuesta of item.respuestas">
+                                    <section class="flex justify-content-center">
+                                        <section class="respuesta w-full" (click)="procesarRespuesta(respuesta, item)">
+                                            <p class="text-center m-0 text-xl lg:text-4xl font-semibold">{{respuesta}}</p>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+                        </ng-template>
+                    </p-carousel>
+                </section>
+                <section class="col-12">
+                    <section class="padre">
+                        <section class="hijo" *ngFor="let respuesta of respuestas">
+                            <i [style]="{ color: 'var(--secondary-color)' }" class="pi pi-circle text-lg" *ngIf="respuesta === null"></i>
+                            <i [style]="{ color: 'red' }" class="pi pi-times text-lg" *ngIf="respuesta === 0"></i>
+                            <i [style]="{ color: 'green' }" class="pi pi-check text-lg" *ngIf="respuesta === 1"></i>
+                        </section>
+                    </section>
+                </section>
+                <section class="col-12">
+                    <section class="scoreboard">
+                        <section class="btns">
+                            <button pButton class="p-button-secondary" icon="pi pi-refresh" (click)="obtenerPreguntas()" label="REINICIAR"></button>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </p-card>
+    </section>
+</section>
+
+<p-dialog header="Enfokids" [(visible)]="resuelto" styleClass="modal-break-points">
+	<section class="grid">
+	  <section class="col-12">
+		<p class="font-semibold">Total de puntos: {{ score }} puntos</p>
+		<p class="font-semibold">{{ mensajeResuelto }}</p>
+		<button pButton (click)="obtenerPreguntas(); resuelto = false" label="Jugar de nuevo" icon="pi pi-refresh"></button>
+	  </section>
+	</section>
+</p-dialog>

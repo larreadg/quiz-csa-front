@@ -1,0 +1,163 @@
+[
+    {
+     "pregunta": "¿Cuánto es 5 + 3?",
+     "r1": 8,
+     "r2": 7,
+     "r3": 9,
+     "r4": 6
+    },
+    {
+     "pregunta": "¿Qué número sigue en la secuencia? 2, 4, 6, 8, __",
+     "r1": 10,
+     "r2": 11,
+     "r3": 2,
+     "r4": 5
+    },
+    {
+     "pregunta": "¿Cuánto es 9 - 4?",
+     "r1": 5,
+     "r2": 4,
+     "r3": 6,
+     "r4": 7
+    },
+    {
+     "pregunta": "¿Cuál es el doble de 6?",
+     "r1": 12,
+     "r2": 6,
+     "r3": 0,
+     "r4": 3
+    },
+    {
+     "pregunta": "¿Cuánto es 3 × 5?",
+     "r1": 15,
+     "r2": 12,
+     "r3": 14,
+     "r4": 16
+    },
+    {
+     "pregunta": "¿Cuál es la mitad de 10?",
+     "r1": 5,
+     "r2": 7,
+     "r3": 8,
+     "r4": 9
+    },
+    {
+     "pregunta": "¿Cuántos lados tiene un triángulo?",
+     "r1": 3,
+     "r2": 5,
+     "r3": 4,
+     "r4": 2
+    },
+    {
+     "pregunta": "¿Cuánto falta para llegar a 10 desde el 7?",
+     "r1": 3,
+     "r2": 2,
+     "r3": 5,
+     "r4": 8
+    },
+    {
+     "pregunta": "¿Qué número es impar: 6, 8, 11 o 14?",
+     "r1": 11,
+     "r2": 6,
+     "r3": 8,
+     "r4": 14
+    },
+    {
+     "pregunta": "¿Cuánto es 7 + 9?",
+     "r1": 16,
+     "r2": 15,
+     "r3": 14,
+     "r4": 12
+    },
+    {
+     "pregunta": "¿Qué hora será en 2 horas si ahora son las 3?",
+     "r1": 5,
+     "r2": 3,
+     "r3": 6,
+     "r4": 8
+    },
+    {
+     "pregunta": "¿Qué número falta? 10, 20, __, 40",
+     "r1": 30,
+     "r2": 15,
+     "r3": 50,
+     "r4": 25
+    },
+    {
+     "pregunta": "¿Cuánto es 8 - 2?",
+     "r1": 6,
+     "r2": 4,
+     "r3": 5,
+     "r4": 9
+    },
+    {
+     "pregunta": "Si tienes 2 monedas de 5, ¿cuánto tienes?",
+     "r1": 10,
+     "r2": 8,
+     "r3": 5,
+     "r4": 2
+    },
+    {
+     "pregunta": "¿Cuánto es 4 × 2?",
+     "r1": 8,
+     "r2": 7,
+     "r3": 4,
+     "r4": 2
+    },
+    {
+     "pregunta": "¿Cuál es el número anterior a 13?",
+     "r1": 12,
+     "r2": 11,
+     "r3": 14,
+     "r4": 16
+    },
+    {
+     "pregunta": "¿Cuánto es 6 + 6?",
+     "r1": 12,
+     "r2": 2,
+     "r3": 5,
+     "r4": 13
+    },
+    {
+     "pregunta": "¿Qué figura tiene 4 lados iguales?",
+     "r1": "Cuadrado",
+     "r2": "Triángulo",
+     "r3": "Esfera",
+     "r4": "Triangulo Escaleno"
+    },
+    {
+     "pregunta": "¿Qué número sigue en la serie? 5, 10, 15, __",
+     "r1": 20,
+     "r2": 25,
+     "r3": 15,
+     "r4": 10
+    },
+    {
+     "pregunta": "¿Cuántos minutos tiene una hora?",
+     "r1": 60,
+     "r2": 65,
+     "r3": 30,
+     "r4": 90
+    },
+    {
+     "pregunta": "¿Cuánto es 20 - 5?",
+     "r1": 15,
+     "r2": 12,
+     "r3": 14,
+     "r4": 13
+    },
+    {
+     "pregunta": "¿Cuántos ceros tiene el número cien?",
+     "r1": 2,
+     "r2": 4,
+     "r3": 3,
+     "r4": 1
+    },
+    {
+     "pregunta": "¿Cuánto es 2 + 8?",
+     "r1": 10,
+     "r2": 14,
+     "r3": 15,
+     "r4": 13
+    }
+]

@@ -1,0 +1,64 @@
+@import '../../../variables.scss';
+
+.pluzzle_game-container {
+
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Fredoka', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  @media screen and (min-width: $lg) {
+    width: 50vw !important;
+    margin: auto;
+  }
+
+  .pluzzle_card {
+    position: relative;
+    width: 100%;
+    @media screen and (min-width: $md) {
+      width: 50%;
+      margin: auto;
+    }
+    aspect-ratio: 1 / 1; // siempre cuadrada, responsive
+    perspective: 800px;
+    cursor: pointer;
+  }
+
+  & .pluzzle_flipped .pluzzle_card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .pluzzle_card-inner {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .pluzzle_card-front,
+  .pluzzle_card-back {
+    position: absolute;
+    inset: 0;
+    border: 2px solid #214e63;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.6rem, 6vw, 2.2rem); // escala con el ancho de la columna
+    user-select: none;
+  }
+
+  .pluzzle_card-front {
+    background: var(--primary-color, #3b82f6);
+    color: #fff;
+
+    &:hover {
+      border-color: var(--secondary-color, #22c55e);
+    }
+  }
+
+  .pluzzle_card-back {
+    background: #fff;
+    transform: rotateY(180deg);
+  }
+}

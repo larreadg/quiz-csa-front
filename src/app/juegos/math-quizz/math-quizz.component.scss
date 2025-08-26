@@ -1,0 +1,49 @@
+.respuesta {
+    padding: 1rem;
+    color: white;
+    background-color: #f9a67c;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.padre {
+    display: flex;
+    flex-direction: row; // Por defecto, pero se aclara
+    justify-content: space-between; // o "start" si querés sin espacio entre ellos
+    align-items: center;
+    flex-wrap: nowrap; // Muy importante para que no se vayan a la siguiente línea
+    gap: 8px; // Opcional: espacio entre hijos
+}
+
+.padre>.hijo {
+    flex: 1;
+    text-align: center; // Opcional
+}
+
+.scoreboard .btns {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.scoreboard .btns button {
+    flex: 1;
+}
+
+.successMessage{
+    margin-top: 1rem;
+    background-color: #f9a67c;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 1rem;
+    font-family: 'Fredoka';
+    text-align: center;
+}
+
+.pe-none {
+    pointer-events: none;
+}

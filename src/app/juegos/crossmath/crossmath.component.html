@@ -1,0 +1,113 @@
+<div class="grid justify-content-center">
+  <div class="col-12">
+    <div class="crossmath-wrapper">
+        <div class="flex align-items-center justify-content-between mb-3">
+          <div class="flex gap-2 flex-wrap">
+            <section>
+                <button
+                  pButton
+                  label="Nuevo"
+                  icon="pi pi-refresh"
+                  class="p-button-sm"
+                  (click)="newGame()"
+                ></button>
+            </section>
+            <section>
+                <button
+                  pButton
+                  label="Reiniciar"
+                  icon="pi pi-undo"
+                  class="p-button-sm p-button-secondary"
+                  (click)="reset()"
+                ></button>
+            </section>
+            <section>
+                <button
+                  [disabled]="pool.length > 0"
+                  pButton
+                  label="Comprobar"
+                  icon="pi pi-check"
+                  class="p-button-sm p-button-success"
+                  (click)="check()"></button>
+            </section>
+          </div>
+        </div>
+    
+        <!-- Tablero 5x5 con PrimeFlex -->
+        <div class="grid">
+          <div class="col-12" *ngFor="let r of rows">
+            <div class="grid grid-nogutter">
+              <ng-container *ngFor="let cell of rowCells(r)">
+                <!-- 5 columnas iguales usando 'col' (equal flex share) -->
+                <div class="col p-1">
+                  <div
+                    class="cell-box"
+                    [class.is-op]="cell.type === 'op'"
+                    [class.is-eq]="cell.type === 'eq'"
+                    [class.is-void]="cell.type === 'void'"
+                  >
+                    <!-- número fijo -->
+                    <div
+                      *ngIf="cell.type === 'num' && cell.given"
+                      class="num fredoka"
+                    >
+                      {{ cell.value }}
+                    </div>
+    
+                    <!-- hueco (drop) -->
+                    <div
+                      *ngIf="cell.type === 'num' && !cell.given"
+                      class="num hole"
+                      cdkDropList
+                      [id]="dropId(cell.id)"
+                      [cdkDropListData]="cell.bag!"
+                      [cdkDropListConnectedTo]="connected"
+                      (cdkDropListDropped)="drop($event, cell)"
+                    >
+                      <div *ngFor="let t of cell.bag" class="tile fredoka" cdkDrag>
+                        {{ t.value }}
+                      </div>
+                    </div>
+    
+                    <!-- operador / igual -->
+                    <div
+                      *ngIf="cell.type === 'op' || cell.type === 'eq'"
+                      class="op fredoka"
+                    >
+                      {{ cell.text }}
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Bandeja -->
+        <div class="mt-3">
+          <h4 class="mb-2 fredoka">Opciones</h4>
+          <div
+            class="pool"
+            cdkDropList
+            [id]="'POOL'"
+            [cdkDropListData]="pool"
+            [cdkDropListConnectedTo]="connected"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div *ngFor="let t of pool" class="tile fredoka" cdkDrag>{{ t.value }}</div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog header="Enfokids" [(visible)]="resuelto" styleClass="modal-break-points">
+	<section class="grid">
+	  <section class="col-12">
+		<p class="font-semibold">{{ mensajeResuelto }}</p>
+		<button *ngIf="!err" pButton (click)="newGame(); resuelto = false" label="Jugar de nuevo" icon="pi pi-refresh"></button>
+		<button *ngIf="err" pButton (click)="resuelto = false" label="Cerrar"></button>
+	  </section>
+	</section>
+</p-dialog>

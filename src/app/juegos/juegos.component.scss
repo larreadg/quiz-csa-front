@@ -1,0 +1,43 @@
+@import '../../variables.scss';
+
+.titulo {
+    font-size: 2rem;
+    font-family: 'Fredoka';
+    font-weight: lighter;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.top {
+    margin-top: 0;
+
+    @media screen and (min-width: $lg) {
+        margin-top: 30vh !important;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    /* centrar */
+}
+
+@media (min-width: $lg) {
+    .wrapper {
+        width: 70vw;
+    }
+}
+
+@media (min-width: $xl) {
+    .wrapper {
+        width: 50vw;
+    }
+}
+
+.clamp-2 {
+    display: -webkit-box;        /* crea un contenedor flexible vertical */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;       /* número de líneas máximas */
+    overflow: hidden;            /* oculta lo que sobra */
+    text-overflow: ellipsis;     /* muestra … al cortar */
+}

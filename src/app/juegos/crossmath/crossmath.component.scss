@@ -1,0 +1,140 @@
+@import '../../../variables.scss';
+
+.crossmath-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    /* centrar */
+}
+
+/* md: 60vw */
+@media (min-width: $md) {
+    .crossmath-wrapper {
+        width: 60vw;
+    }
+}
+
+/* lg o más: 40vw */
+@media (min-width: $lg) {
+    .crossmath-wrapper {
+        width: 40vw;
+    }
+}
+
+@media (min-width: $xl) {
+    .crossmath-wrapper {
+        width: 30vw;
+    }
+}
+
+@media (min-width: $xxl) {
+    .crossmath-wrapper {
+        width: 25vw;
+    }
+}
+
+:host {
+    display: block;
+}
+
+/* Celdas cuadradas y fluidas */
+.cell-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #cfe3cf;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cell-box.is-void { border-color: transparent; background: transparent; }
+
+.num {
+    font-size: clamp(18px, 3.2vw, 28px);
+    font-weight: 700;
+    color: #f9a67c;
+
+    &.fixed {
+        user-select: none;
+    }
+
+    &.hole {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.op {
+    font-size: clamp(22px, 3.6vw, 36px);
+    font-weight: 800;
+    color: #f9a67c;
+}
+
+.pool {
+    min-height: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .75rem;
+    border: 2px dashed #f9a67c;
+    border-radius: 8px;
+    background: #fff8e0;
+}
+
+.tile {
+    width: clamp(48px, 9vw, 64px);
+    height: clamp(48px, 9vw, 64px);
+    line-height: clamp(48px, 9vw, 64px);
+    text-align: center;
+    border-radius: 8px;
+    background: #ffe08a;
+    border: 1px solid #e9ba52;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    cursor: grab;
+    user-select: none;
+}
+
+.cdk-drag {
+    touch-action: none;
+}
+
+/* SOLUCIÓN 1: Forzar posicionamiento relativo para elementos arrastrados */
+.cdk-drag-dragging {
+    position: absolute !important;
+    z-index: 1000;
+}
+
+/* SOLUCIÓN 2: Mejorar el comportamiento del preview durante drag */
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    /* Asegurar que el preview tenga el tamaño correcto */
+    width: clamp(48px, 9vw, 64px) !important;
+    height: clamp(48px, 9vw, 64px) !important;
+    line-height: clamp(48px, 9vw, 64px) !important;
+}
+
+/* SOLUCIÓN 3: Contenedor con posición relativa para mejor contexto de arrastre */
+.crossmath-wrapper {
+    position: relative;
+    /* Crear un contexto de posicionamiento */
+}
+
+/* SOLUCIÓN 4: Prevenir overflow issues durante drag */
+.grid {
+    position: relative;
+    overflow: visible;
+}
+
+/* SOLUCIÓN 5: Mejorar el placeholder cuando se está arrastrando */
+.cdk-drag-placeholder {
+    opacity: 0.3;
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+}

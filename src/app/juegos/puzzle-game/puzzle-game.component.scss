@@ -1,0 +1,112 @@
+@import '../../../variables.scss';
+.cont {
+    width: 100%;
+
+    @media screen and (min-width: $lg) {
+        width: 40vw !important;
+        margin: auto;
+    }
+}
+
+.imagePuzzle {
+    color: #495057;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.unsolvedPuzzle {
+    box-sizing: border-box;
+}
+
+.scoreboard {
+    width: 100%;
+}
+
+.puzzle {
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(var(--gs, 3), 1fr);
+    grid-template-rows: repeat(var(--gs, 3), 1fr);
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.box {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+    user-select: none;
+    -webkit-user-drag: element;
+    cursor: grab;
+}
+
+.box:active {
+    cursor: grabbing;
+}
+
+.scoreboard .btns {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.scoreboard .btns button {
+    flex: 1;
+}
+
+.img-ref {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+
+    img {
+        width: 112px;
+        height: 112px;
+        border: 2px solid var(--primary-color, #3b82f6);
+        border-radius: .25rem;
+        object-fit: cover;
+    }
+}
+
+.successMessage {
+    margin-top: 1rem;
+    background-color: #f9a67c;
+    border-radius: .5rem;
+    color: #fff;
+    padding: 1rem;
+    font-family: 'Fredoka', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    text-align: center;
+}
+
+.img-ref {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+
+    img {
+        width: 128px;
+        height: 128px;
+        border: 2px solid var(--primary-color);
+        border-radius: 0.25rem;
+    }
+}
+
+/* Siempre */
+.box { user-select: none; cursor: grab; }
+.box:active { cursor: grabbing; }
+
+/* SOLO en dispositivos táctiles (pointer: coarse) */
+@media (pointer: coarse) {
+  .puzzle, .box {
+    touch-action: none;       /* evita scroll/zoom durante el gesto */
+    -webkit-user-drag: none;  /* Safari/Chrome móvil no arrastren el elemento */
+  }
+}

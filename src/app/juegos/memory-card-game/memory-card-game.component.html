@@ -1,0 +1,42 @@
+<div class="pluzzle_game-container">
+  <!-- grilla responsiva -->
+  <div class="grid">
+    <!-- 1 columna en xs, 2 en sm, 3 en md, 4 en lg+ -->
+    <div
+      class="col-3"
+      *ngFor="let card of cards"
+    >
+      <div
+        class="pluzzle_card"
+        [class.pluzzle_flipped]="card.flipped || card.matched"
+        (click)="flipCard(card)"
+      >
+        <div class="pluzzle_card-inner">
+          <div class="pluzzle_card-front">?</div>
+          <div class="pluzzle_card-back">{{ card.image }}</div>
+        </div>
+      </div>
+    </div>
+    <section class="col-12">
+      <div class="flex justify-content-center">
+        <button
+          pButton
+          (click)="restart()"
+          class="p-button-secondary w-full md:w-20rem"
+          label="REINICIAR"
+          icon="pi pi-refresh"
+        ></button>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<p-dialog header="Enfokids" [(visible)]="resuelto" styleClass="modal-break-points">
+	<section class="grid">
+	  <section class="col-12">
+		<p class="font-semibold">{{ mensajeResuelto }}</p>
+		<button pButton (click)="restart(); resuelto = false" label="Jugar de nuevo" icon="pi pi-refresh"></button>
+	  </section>
+	</section>
+</p-dialog>

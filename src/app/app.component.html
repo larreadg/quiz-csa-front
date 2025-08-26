@@ -1,0 +1,65 @@
+<nav class="nav shadow-2">
+  <section class="enfokids" routerLink="/juegos">
+    <img src="assets/img/logo2.png" alt="Enfokids">
+    <p class="fredoka m-0 text-xl">Enfokids</p>
+  </section>
+  <section class="btns">
+    <button routerLink="/juegos" tooltipPosition="left" pTooltip="Inicio" pButton pRipple class="p-button-primary p-button-text p-button-rounded" [style.color]="'white'" icon="pi pi-home"></button>
+    <button (click)="off ? iniciarMusica() : pararMusica()" tooltipPosition="left" pTooltip="Volumen" pButton pRipple class="p-button-primary p-button-text p-button-rounded" [style.color]="'white'" icon="pi pi-volume-up"></button>
+    <button (click)="aboutAs = true" tooltipPosition="left" pTooltip="Acerca de nosotros..." pButton pRipple class="p-button-primary p-button-text p-button-rounded" [style.color]="'white'" icon="pi pi-info-circle"></button>
+
+
+  </section>
+</nav>
+<section class="container">
+  <router-outlet></router-outlet>
+  <!-- <p-speedDial showIcon="pi pi-bars" hideIcon="pi pi-times" [model]="items" direction="up" [style]="{ position: 'absolute', bottom: '2rem', left: '1.5rem', zIndex: 1000 }"></p-speedDial> -->
+</section>
+<audio #audioPlayer src="assets/music/enfokids2.mp3" loop></audio>
+
+
+<p-dialog
+  header="Enfokids"
+  [(visible)]="aboutAs"
+  styleClass="modal-break-points"
+  [modal]="true"
+>
+  <section class="grid">
+    <section class="col-12">
+      <p class="fredoka text-2xl text-azul-marino">Colegio Católico Priv. Subv. San Alfonso - Carapeguá</p>
+    </section>
+    <section class="col-12">
+        <section class="flex align-items-center justify-content-center">
+            <img src="assets/img/logo.png" alt="Enfokids" style="width: 50%;height: auto;">
+        </section>
+    </section>
+    <section class="col-12">
+        <p class="fredoka text-xl text-azul-marino">Responsables</p>
+        <ul>
+            <li>
+                <p class="fredoka text-xl text-azul-marino">Acosta Cartaman, Gabriela Castorina</p>
+            </li>
+            <li>
+                <p class="fredoka text-xl text-azul-marino">Benítez Ayala, Lionel</p>
+            </li>
+            <li>
+                <p class="fredoka text-xl text-azul-marino">González Adorno, Amelia Abigail</p>
+            </li>
+            <li>
+                <p class="fredoka text-xl text-azul-marino">Montiel Villalba, Federico</p>
+            </li>
+            <li>
+                <p class="fredoka text-xl text-azul-marino">Velázquez Centurión, María Alexandra</p>
+            </li>
+          </ul>
+    </section>
+    <section class="col-12">
+      <section class="flex justify-content-center">
+        <p class="m-0 fredoka text-2xl text-azul-marino">BTI 2025</p>
+      </section>
+    </section>
+    <section class="col-12">
+      <button pButton (click)="aboutAs = false" label="Cerrar"></button>
+    </section>
+  </section>
+</p-dialog>

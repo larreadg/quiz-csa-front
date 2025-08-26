@@ -1,0 +1,65 @@
+<div class="grid cont">
+  <div class="col-12">
+    <div class="imagePuzzle">
+      <div class="unsolvedPuzzle">
+        <ul class="puzzle" [style.--gs]="gridsize">
+          <li
+            *ngFor="let img of Image"
+            class="box"
+            [draggable]="true"
+            [id]="img.index"
+            (dragstart)="onDragStart($event)"
+            (drop)="onDrop($event)"
+            (dragover)="allowDrop($event)"
+
+            (pointerdown)="onPointerDown($event)"
+            (pointerup)="onPointerUp($event)"
+            (pointercancel)="onPointerCancel()"
+            [ngStyle]="{
+              'background-image': 'url(' + imageUrl + ')',
+              'background-repeat': 'no-repeat',
+              'background-position': img.x_pos + ' ' + img.y_pos,
+              'background-size': gridsize * 100 + '% ' + gridsize * 100 + '%'
+            }"
+          ></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <section class="scoreboard">
+      <section class="btns">
+        <button
+          pButton
+          icon="pi pi-refresh"
+          class="p-button-secondary w-full"
+          (click)="restart()"
+          label="Reiniciar juego"
+        ></button>
+      </section>
+    </section>
+  </div>
+</div>
+
+<section class="img-ref" *ngIf="imageUrl !== ''">
+	<img [src]="imageUrl" alt="Referencia">
+</section>
+
+<p-dialog
+  header="Enfokids"
+  [(visible)]="resuelto"
+  styleClass="modal-break-points"
+>
+  <section class="grid">
+    <section class="col-12">
+      <p class="font-semibold">{{ mensajeResuelto }}</p>
+      <button
+        pButton
+        (click)="restart(); resuelto = false"
+        label="Jugar de nuevo"
+        icon="pi pi-refresh"
+      ></button>
+    </section>
+  </section>
+</p-dialog>

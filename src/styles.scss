@@ -1,0 +1,53 @@
+@import './variables.scss';
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+button {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    width: 100%;
+    color: white;
+    font-family: 'Fredoka' !important;
+    cursor: pointer;
+
+    &.btn-secondary {
+        background-color: var(--secondary-color);
+    }
+    
+    &.btn-primary {
+        background-color: var(--primary-color);
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.modal-break-points {
+    
+    width: calc(100vw - 2rem) !important;
+    
+    @media screen and (min-width: $lg) {
+        width: 50vw !important;
+    }
+    @media screen and (min-width: $xl) {
+        width: 30vw !important;
+    }
+    @media screen and (min-width: $xxl) {
+        width: 20vw !important;
+    }
+}
+
+.fredoka, .p-dialog .p-dialog-header .p-dialog-title {
+    font-family: 'Fredoka' !important;
+}
+
+.text-azul-marino {
+    color: #214e63;
+}

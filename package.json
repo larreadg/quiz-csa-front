@@ -1,7 +1,10 @@
 {
   "name": "quiz-csa-front",
-  "main": "main.js",
   "version": "0.0.0",
+  "description": "Application EnfoKids",
+  "author": "Diego Larrea <larreadg@gmail.com>",
+  "main": "public/electron.js",
+  "homepage": "./",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -45,21 +48,29 @@
     "typescript": "~4.9.4"
   },
   "build": {
-    "appId": "py.csa.enfokids",
-    "productName": "EnfoKids",
-    "files": [
-      "dist/",
-      "main.js",
-      "package.json"
-    ],
+    "appId": "com.enfokids.quiz-csa",
+    "productName": "EnfoKids Quiz CSA",
     "directories": {
       "output": "dist_electron"
     },
-    "win": { "target": "nsis", "icon": "build/icon.ico" },
+    "files": [
+      "dist/**/*",
+      "public/electron.js",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      "icon": "src/assets/icons/icon.ico"
+    },
     "nsis": {
-      "artifactName": "EnfoKids_v1.0.0.exe",  
-      "oneClick": true,
-      "perMachine": false
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   }
 }
